@@ -11,9 +11,8 @@ class WwwWearNetSpider(WwwWearTwSpider):
 
     name = 'www_wear_net'
 
-    def _parse_html(self, html):
+    def _parse_html(self, doc):
         user = dict()
-        doc = PyQuery(html)('#gbl_main')
         header = doc('#user_header')
         user['name'] = header.children('#user_sub').children('.image').children('.img').children('img').attr('alt')
         info = header('ul.info').children()
