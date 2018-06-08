@@ -68,7 +68,7 @@ class WwwWearNetLookSpider(scrapy.Spider):
             item = dict()
             item['imgUrl'] = "http:" + i(".sub")('p.img')('img').attr("src")
             item['brand'] = i('.main')('.brand').text()
-            item['category'] = i('.main').children('.txt').eq(1).text()
+            item['category'] = i('.main')('.txt')("a").text()
             item_list.append(item)
         if item_list:
             look['items'] = item_list
