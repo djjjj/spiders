@@ -9,13 +9,11 @@ from pyquery import PyQuery
 from ..redis_utils import user_queue, look_ids_queue
 
 
-domain = 'wear.tw'
-
-
 class WwwWearTwSpider(scrapy.Spider):
     name = 'www_wear_tw'
     allowed_domains = []
 
+    domain = 'wear.tw'
     url_patten = 'https://' + domain + '/%s/'
 
     re_user_id_patten = re.compile("/([^/]+)/$")

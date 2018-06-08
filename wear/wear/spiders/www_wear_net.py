@@ -4,12 +4,13 @@ from pyquery import PyQuery
 
 from .www_wear_tw import WwwWearTwSpider
 
-domain = "wear.net"
-
 
 class WwwWearNetSpider(WwwWearTwSpider):
 
     name = 'www_wear_net'
+
+    domain = "wear.net"
+    url_patten = 'https://' + domain + '/%s/'
 
     def _parse_html(self, doc):
         user = dict()
