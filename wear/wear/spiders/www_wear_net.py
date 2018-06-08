@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import re
 from pyquery import PyQuery
 
 from .www_wear_tw import WwwWearTwSpider
@@ -18,7 +19,7 @@ class WwwWearNetSpider(WwwWearTwSpider):
         info = header('ul.info').children()
         for child in info[1:]:
             text = PyQuery(child).text()
-            if text.endswith('cm'):
+            if re.search("\d'\d\"", text):
                 user['height'] = text
             elif text in {'MEN', 'WOMEN', 'KIDS'}:
                 user['sex'] = text
